@@ -1,0 +1,77 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js build output
+/.next/
+/out/
+
+# Production build files
+/build
+
+# Static export files
+/export
+
+# Miscellaneous
+.DS_Store
+*.pem
+
+# Nodejs dependency updates
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+
+# IDE config files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Typescript cache
+*.tsbuildinfo
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Turbo Repo
+.turbo
+
+# Drizzle Migration files (optional)
+# drizzle/*
+# !drizzle/meta/_journal
+
+# Output of sensitive data extraction tool (e.g., git-secrets)
+*.secret.*
+
+# Optional VS Code files for debugging etc.
+.history/
