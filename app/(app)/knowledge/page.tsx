@@ -9,6 +9,7 @@ import { useAuth } from '@/lib/hooks/useAuth';
 import { useDocumentStatuses } from '@/lib/hooks/useDocumentStatuses';
 import { useUploadDocument } from '@/lib/hooks/useUploadDocument';
 import { DocumentStatusList } from '@/components/knowledge/document-status-list';
+import DocumentStatusListVirtual from '@/components/knowledge/document-status-list-virtual';
 import { FileUploader } from '@/components/knowledge/file-uploader';
 import { AuthHeaders, getDocumentStats, DocumentStatsResponse } from '@/lib/api';
 import { cn } from '@/lib/utils';
@@ -208,7 +209,7 @@ export default function KnowledgePage() {
         {!isLoadingDocuments && documentsError == null && authHeadersForChildren && (
           <div className="h-full min-h-0 flex-1 flex flex-col">
             <div className="flex-1 min-h-0">
-              <DocumentStatusList
+              <DocumentStatusListVirtual
                 documents={documents}
                 authHeaders={authHeadersForChildren}
                 onRetrySuccess={handleRetrySuccess}
