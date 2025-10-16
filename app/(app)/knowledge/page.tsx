@@ -71,7 +71,7 @@ export default function KnowledgePage() {
   useEffect(() => {
     if (uploadResponse?.document_id) {
        const refreshDelay = 1500;
-       const timer = setTimeout(() => { fetchDocuments(true); }, refreshDelay);
+       const timer = setTimeout(() => { fetchDocuments(); }, refreshDelay);
        return () => clearTimeout(timer);
     }
   }, [uploadResponse, fetchDocuments]);

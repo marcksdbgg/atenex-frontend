@@ -78,7 +78,9 @@ export function useDocumentStatuses(): UseDocumentStatusesReturn {
       offsetRef.current = 0;
 
       // CAMBIO CLAVE: Usar skip_live_checks para la carga inicial
-      const skipLiveChecks = !force; // Si force=true, hacemos checks; si false (defecto), saltamos checks
+      // Por defecto (force=false o sin parámetro): skip_live_checks=true (RÁPIDO, solo DB)
+      // Con force=true: skip_live_checks=false (lento, con checks de MinIO/Milvus)
+      const skipLiveChecks = !force; // force=false (o undefined) → skip=true → rápido
       const params = new URLSearchParams({
         limit: PAGE_SIZE.toString(),
         offset: currentOffset.toString(),
@@ -108,7 +110,7 @@ export function useDocumentStatuses(): UseDocumentStatusesReturn {
   useEffect(() => {
     // Cargar solo si hay usuario, compañía y la lista está vacía o si el usuario/compañía cambia
     if (user?.userId && user?.companyId) {
-      fetchDocuments(true); // Siempre resetea al cambiar usuario/compañía
+      fetchDocuments(); // Modo rápido (sin parámetro = force=false = skip_live_checks=true)
     } else if (!isAuthLoading && !user?.userId) {
       setDocuments([]); setIsLoading(false); setError(null); setHasMore(false);
     }
